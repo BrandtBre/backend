@@ -1,22 +1,13 @@
 // importar a dependencia do express para a criação do servidor 
 const express = require('express');
-const req = require('express/lib/request');
 
 // criar uma constante que representa a nossa aplicação como um todo 
 // vamos chamar ela de 'app' e ela recebe a invocação do express 
 const app = express();
-const db = require('./config/db');
 
-
-// criação de rota que vai listar todos os cadastros 
-app.get('/clientes', async (req, res) => {
-    const sql = 'select nome from clientes where id = 30';
-    const clientes = await db.query(sql);
-    res.status(200).send({
-        dados: clientes.rows,
-        quantidadde: clientes.rowCount
-    });
-});
+app.use(express.json());
+//MIDDLEWARE
+require('./routes')(app);
 
 // define-se em qual prota a aplicação vai rodar 
 // para isso usamos a função .listen(PORT, CALLBACK FUNCTION)
