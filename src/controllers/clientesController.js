@@ -29,7 +29,7 @@ const postCliente = async (req, res) => {
 
 const patchCliente = async (req, res) => {
     try {
-        const cliente = await clientesService.patchCliente;
+        const cliente = await clientesService.patchCliente(req.body);
         res.status(201).send(cliente);
     } catch (error) {
         res.status(500).send(error);

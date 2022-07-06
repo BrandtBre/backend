@@ -38,6 +38,7 @@ const postCliente = async (params) => {
 // atualizar o cliente 
 
 const patchCliente = async (params) => {
+    console.log(params)
     let fields = [];
     Object.keys(params).forEach(campo => campo !== 'id' && fields.push(`${campo} = '${params[campo]}'`));
     fields = fields.join(', ');
