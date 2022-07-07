@@ -7,7 +7,7 @@ const contasReceber = require('./contasReceberRoute');
 const contasPagar = require('./contasPagarRoute');
 const lancamentosReceber = require('./lancamentosReceberRoute');
 const lancamentosPagar = require('./lancamentosPagarRoute');
-const avgAllClientes = require('./mediaIdadeRoute')
+const avgAllClientes = require('./mediaIdadeRoute');
 
 module.exports = (app) => {
     clientes(app)
