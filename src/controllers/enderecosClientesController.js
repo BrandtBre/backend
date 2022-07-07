@@ -1,44 +1,44 @@
-const enderecosService = require('../services/enderecosService');
+const enderecosClientesService = require('../services/enderecosClientesService');
 
-const getAllEnderecos = async (req, res) => {
+const getAllEnderecosClientes = async (req, res) => {
     try {
-        const enderecos = await enderecosService.getAllEnderecos();
-        res.status(200).send(enderecos);
+        const enderecosClientes = await enderecosClientesService.getAllEnderecosClientes();
+        res.status(200).send(enderecosClientes);
     } catch (error) {
         res.status(500).send(error);
     }
 }
 
-const getEnderecoById = async (req, res) => {
+const getEnderecosClientesById = async (req, res) => {
     try {
-        const Endereco = await enderecosService.getEnderecoById(req.params);
-        res.status(200).send(Endereco);
+        const EnderecosClientes = await enderecosClientesService.getEnderecosClientesById(req.params);
+        res.status(200).send(EnderecosClientes);
     } catch (error) {
         res.status(500).send(error);
     }
 }
 
-const postEndereco = async (req, res) => {
+const postEnderecosClientes = async (req, res) => {
     try {
-        const Endereco = await enderecosService.postEndereco(req.body);
-        res.status(200).send(Endereco);
+        const EnderecosClientes = await enderecosClientesService.postEnderecosClientes(req.body);
+        res.status(200).send(EnderecosClientes);
     } catch (error) {
         res.status(500).send(error);
     }
 }
 
-const patchEndereco = async (req, res) => {
+const patchEnderecosClientes = async (req, res) => {
     try {
-        const Endereco = await enderecosService.patchEndereco(req.body);
+        const Endereco = await enderecosClientesService.patchEnderecosClientes(req.body);
         res.status(201).send(Endereco);
     } catch (error) {
         res.status(500).send(error);
     }
 }
 
-const deleteEndereco = async (req, res) => {
+const deleteEnderecosClientes = async (req, res) => {
     try {
-        let deletado = await enderecosService.deleteEndereco(req.params);
+        let deletado = await enderecosClientesService.deleteEnderecosClientes(req.params);
         let msg = deletado 
             ? `Endereco ${req.params.id} deletado com sucesso` 
             : `Não foi encontrado nenhum Endereco com o id ${req.params.id} para ser deletado`;
@@ -48,9 +48,9 @@ const deleteEndereco = async (req, res) => {
     }
 }
 
-module.exports.getAllEnderecos = getAllEnderecos;
-module.exports.getEnderecoById = getEnderecoById;
-module.exports.postEndereco = postEndereco;
-module.exports.patchEndereco = patchEndereco;
-module.exports.deleteEndereco = deleteEndereco;
+module.exports.getAllEnderecosClientes = getAllEnderecosClientes;
+module.exports.getEnderecosClientesById = getEnderecosClientesById;
+module.exports.postEnderecosClientes = postEnderecosClientes;
+module.exports.patchEnderecosClientes = patchEnderecosClientes;
+module.exports.deleteEnderecosClientes = deleteEnderecosClientes;
 

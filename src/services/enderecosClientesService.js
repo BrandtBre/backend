@@ -11,7 +11,7 @@ const getAllEnderecosClientes = async () => {
 //consultar um EnderecosCLientes pela id
 
 const getEnderecosClientesById = async (params) => {
-    let sql = `select * from enderecos where id = $1`;
+    let sql = `select * from enderecos_clientes where id = $1`;
     let EnderecosClientes = await db.query(sql, [params.id]);
     return EnderecosClientes.rows;
 }
@@ -22,7 +22,7 @@ const getEnderecosClientesById = async (params) => {
 const postEnderecosClientes = async (params) => {
     let { id_enderecos, id_clientes } = params;
     let sql = `
-        insert into enderecos (
+        insert into enderecos_clientes (
             id_enderecos,
             id_clientes
         ) values ($1, $2) returning id;`;
